@@ -50,7 +50,45 @@
 
     <section class="section section-white blog-section">
       <div class="container blog-list">
-        <article class="blog-entry reveal" id="were-in-the-stretch-run" data-blog-entry>
+        <article class="blog-entry reveal" id="the-architecture-answer-to-the-ai-agent-problem" data-blog-entry>
+          <header class="blog-entry-header">
+            <p class="blog-meta"><time datetime="2026-11">November 2026</time> · Eric Kinney</p>
+            <h2>The Architecture Answer to the AI Agent Problem</h2>
+          </header>
+          <div class="blog-body">
+            <p>Earlier this month, PNC's CEO told the Money20/20 audience in Las Vegas that AI agent-only financial transactions “will never happen” — and that anyone who tries “will be defrauded.” Citi and Bank of America announced restrictions on AI agents accessing customer accounts.</p>
+            <div class="blog-extra" hidden>
+              <p>The consensus forming among incumbent financial institutions: AI agents are a threat to be blocked, not a capability to be built around.</p>
+              <p>We published our response to that consensus a few weeks ago. The short version: the incumbents are not wrong about the fraud risks. They are wrong about the solution. And the reason they're wrong is architectural, not philosophical.</p>
+              <p>This post goes deeper on why.</p>
+              <h3>The Fraud Risks Are Real</h3>
+              <p>The PNC CEO's specific concerns were worth taking seriously:</p>
+              <p>AI agents that can initiate wire transfers without human approval are a business email compromise waiting to happen. An agent that can change banking details on existing vendors can be manipulated by exactly the timing attacks that fraud rings use. An agent that can authorize first payments to new vendors without review is a fictitious vendor scheme with a faster cycle time.</p>
+              <p>These are not hypothetical. They are the specific failure modes that thirty years of BSA Officer experience looks like when you write them down.</p>
+              <p>The incumbents blocking AI agents have seen these failure modes. The reason they're blocking rather than building is that their compliance infrastructure was not designed to accommodate AI agents safely — and retrofitting decades-old architecture while the business keeps running is expensive, slow, and uncertain.</p>
+              <p>That is not Scurry's situation.</p>
+              <h3>What Hardcoded Controls Actually Mean</h3>
+              <p>Murry, Scurry's AI compliance agent, has three controls that cannot be overridden by any user, at any permission level:</p>
+              <p><strong>Wire transfers above threshold always require dual human approval.</strong> Business email compromise requires a single point of authorization failure. Dual approval eliminates that single point structurally — not as a policy, but as an architectural constraint.</p>
+              <p><strong>First invoices from new vendors always go to human review.</strong> Fictitious vendor fraud depends on the first payment going through without scrutiny. This control closes that window regardless of who is initiating the payment.</p>
+              <p><strong>Banking detail changes on existing vendors within 30 days of a scheduled payment are automatically held.</strong> This is the specific timing window fraud rings exploit: change the banking details, time the change to coincide with an expected payment. The hold closes that window without requiring anyone to notice the change in real time.</p>
+              <p>The word “hardcoded” matters. A configurable compliance control is not a compliance control — it is a suggestion. Every control that can be disabled will eventually be disabled, under time pressure, by someone with the authority to do it. The value of a hardcoded control is precisely that it cannot be rationalized away.</p>
+              <h3>The Liability Question</h3>
+              <p>One of the incumbent concerns about AI agents is liability: who is responsible when an AI agent sends money to the wrong place?</p>
+              <p>The answer is not “a human was theoretically available.” The answer is: here is the documented decision, here is the human who made it, here is the timestamp, here is what Murry flagged, here is what the reviewer decided, and here is why.</p>
+              <p>Murry does not make final compliance determinations on flagged transactions. He identifies, routes, escalates, and documents. The human review he triggers is real — not a rubber stamp — and the documentation is part of Scurry's BSA program record.</p>
+              <p>That is the audit trail that answers the liability question. Architecture creates it; policy alone cannot.</p>
+              <h3>Why This Matters for B2B Cross-Border Payments</h3>
+              <p>The incumbent concern about AI agents destabilizing deposit bases is a retail banking problem. It does not apply to Scurry's infrastructure in the same way.</p>
+              <p>Our customers are businesses operating in the U.S.-Mexico corridor with cross-border supplier payment needs. The AI agent question for them is not “how do I optimize yield on idle deposits tonight?” It is “how do I pay my Mexican supplier on Friday when the wire cutoff is Thursday afternoon and my CFO is traveling?”</p>
+              <p>Murry is built to answer that question — with the compliance controls that make the answer trustworthy.</p>
+              <p>The PNC CEO is right that a company that lets AI agents transact without the right controls will be defrauded. He is describing every company that built it the wrong way. He is not describing what is possible when the compliance architecture comes first.</p>
+            </div>
+          </div>
+          <button class="blog-toggle" type="button" data-read-more="Leer más" data-show-less="Mostrar menos">Leer más</button>
+        </article>
+
+        <article class="blog-entry reveal delay-1" id="were-in-the-stretch-run" data-blog-entry>
           <header class="blog-entry-header">
             <p class="blog-meta"><time datetime="2026-11">November 2026</time> · Eric Kinney</p>
             <h2>We're in the Stretch Run</h2>
